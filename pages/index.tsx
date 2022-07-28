@@ -1,13 +1,17 @@
-import Header from "../components/Layout/Header"
+import type { ReactElement } from 'react'
+import Layout from '../components/layout/index'
+import type { NextPageWithLayout } from './_app'
 
-export default function Home() {
+const Page: NextPageWithLayout = () => {
+  return <p>hello world</p>
+}
+
+Page.getLayout = function getLayout(page: ReactElement) {
   return (
-    <div>
-      <Header />
-      <h1 className="text-xl font-bold">
-      اهلا بك في مدونتي!
-      </h1>
-    </div>
-
+    <Layout>
+      {page}
+    </Layout>
   )
 }
+
+export default Page
