@@ -12,11 +12,13 @@ module.exports = {
         base: ['17px', '25px'],
         lg: ['20px', '29.4px'],
         xl: ['25px', '36.75px'],
+        xxl: ['36px', '45px'],
       },
       colors: {
         'gray-baby': '#FAFAFA',
         'gray-light': '#F7F7F7',
         'gray-txt': '#808686',
+        'gray-darkTxt': '#404343',
         'gray-dark': '#202221',
         'green': '#5DD5C4',
         'orange': '#FF9F4B'

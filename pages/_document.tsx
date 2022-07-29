@@ -5,7 +5,7 @@ export default function Document() {
     <Html>
       <Head />
        {/* to add public font family */}
-      <body className='font-DINNext'>
+      <body className='font-DINNext bg-gray-baby'>
         <Main />
         <NextScript />
       </body>

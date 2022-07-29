@@ -1,3 +1,4 @@
+import React from "react";
 import Link from 'next/link';
 import { useState } from 'react';
 import Logo from './Logo';
@@ -45,21 +46,21 @@ const Header = () => {
           <div className='sm:inline-flex sm:flex-row sm:ml-auto sm:w-auto sm:items-center items-start  flex flex-col sm:h-auto'>
             <Link href='/'>
               <a className={`${openedTab === 1 ?
-                'border-b-2 border-green text-green' : ''} sm:inline-flex sm:w-auto px-3 py-2 mx-3 text-black font-base items-center justify-center hover:text-green`}
+                'border-b-2 border-green text-green' : 'text-black'} sm:inline-flex sm:w-auto px-3 py-2 mx-3 font-base items-center justify-center hover:text-green`}
                 onClick={(e) => handleTabClick(e, 1)}>
                 الرئيسية
               </a>
             </Link>
             <Link href='/'>
               <a className={`${openedTab === 2 ?
-                'border-b-2 border-green text-green' : ''} sm:inline-flex sm:w-auto px-3 py-2 mx-3 text-black font-base items-center justify-center hover:text-green`}
+                'border-b-2 border-green text-green' : 'text-black'} sm:inline-flex sm:w-auto px-3 py-2 mx-3 font-base items-center justify-center hover:text-green`}
                 onClick={(e) => handleTabClick(e, 2)}>
                 المقالات
               </a>
             </Link>
             <Link href='/'>
               <a className={`${openedTab === 3 ?
-                'border-b-2 border-green text-green' : ''} sm:inline-flex sm:w-auto px-3 py-2 mx-3 text-black font-base items-center justify-center hover:text-green`}
+                'border-b-2 border-green text-green' : 'text-black'} sm:inline-flex sm:w-auto px-3 py-2 mx-3  font-base items-center justify-center hover:text-green`}
                 onClick={(e) => handleTabClick(e, 3)}>
                 التقارير والدراسات
               </a>

@@ -1,3 +1,4 @@
+import React from "react";
 import { BsEnvelope } from "react-icons/bs";
 
 const Newsletter = () => {
