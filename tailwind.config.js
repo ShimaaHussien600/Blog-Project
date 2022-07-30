@@ -15,6 +15,7 @@ module.exports = {
         xl: ['25px', '36.75px'],
         sxl: ['30px', '36px'],
         xxl: ['36px', '45px'],
+        x2l: ['48px', '71px'],
         bigxl: ['50px', '74px'],
       },
       colors: {
@@ -27,6 +28,7 @@ module.exports = {
         'gray-darkTxt': '#404343',
         'gray-dark': '#202221',
         'light-gray': '#EEEEEE',
+        'gray-overlay': '#1D1D1D61',
         'green': '#5DD5C4',
         'orange': '#FF9F4B'
       },

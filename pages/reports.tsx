@@ -1,7 +1,7 @@
 import React from "react";
 import RoportCard from "../components/cards/ReportCard"
 
-const Roports = () => {
+const Reports = () => {
   return (
     <div className="w-full flex pt-17 justify-center items-center bg-gray-baby">
       <div className="md:w-11/12 w-5/6 justify-center items-center">
@@ -20,4 +20,4 @@ const Roports = () => {
   )
 }
 
-export default Roports
+export default Reports

@@ -14,7 +14,7 @@ const Header = () => {
   };
 
   const handleTabClick = (e, tab) => {
-    e.preventDefault();
+    // e.preventDefault();
     setOpenedTab(tab);
   }
 
@@ -51,14 +51,15 @@ const Header = () => {
                 الرئيسية
               </a>
             </Link>
-            <Link href='/'>
+            <Link href='/article'>
               <a className={`${openedTab === 2 ?
                 'border-b-2 border-green text-green' : 'text-black'} sm:inline-flex sm:w-auto px-3 py-2 mx-3 font-base items-center justify-center hover:text-green`}
-                onClick={(e) => handleTabClick(e, 2)}>
+                onClick={(e) => handleTabClick(e, 2)}
+                >
                 المقالات
               </a>
             </Link>
-            <Link href='/'>
+            <Link href='/reports'>
               <a className={`${openedTab === 3 ?
                 'border-b-2 border-green text-green' : 'text-black'} sm:inline-flex sm:w-auto px-3 py-2 mx-3  font-base items-center justify-center hover:text-green`}
                 onClick={(e) => handleTabClick(e, 3)}>
