@@ -1,10 +1,10 @@
 import React from "react";
 
 const RoportCard = (props) => {
-    const { width, widthSM, space, horiz } = props;
+    const { width, widthSM, space, horiz, withoutImg } = props;
     return (
-        <div className={`${horiz ? "flex flex-row justify-center sm:w-[560px] w-full sm:h-[175px] h-[255px]" : `sm:w-[${width}] w-full`} ${space ? 'mb-10':''} rounded overflow-hidden shadow-lg`}>
-            <img className={`${horiz ? "w-2/5" : 'w-full'}`} src="https://www.hubspot.com/hubfs/types-of-marketing-1.jpg" alt="Sunset in the mountains" />
+        <div className={`${horiz ? "flex flex-row justify-center sm:w-[560px] w-full sm:h-[175px] h-[255px]" : withoutImg? 'w-[320px] w-full h-[175px]': "sm:w-[${width}] w-full"} ${space ? 'mb-10':''} rounded overflow-hidden shadow-lg`}>
+            {!withoutImg&&<img className={`${horiz ? "w-2/5" : 'w-full'}`} src="https://www.hubspot.com/hubfs/types-of-marketing-1.jpg" alt="Sunset in the mountains" />}
             <div className={`${horiz ? "w-3/5" : ''} px-6 py-4`}>
                 <div className="text-sm border-r-2 border-green text-gray-800 px-2 mb-2">أفكار البزنس</div>
                 <p className="text-black text-lg mb-2">
