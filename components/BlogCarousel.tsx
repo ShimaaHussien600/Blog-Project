@@ -45,13 +45,13 @@ const BlogCarousel = () => {
         const productsLength = featuredProducts.length;
         count = (count + 1) % productsLength;
         setCurrentIndex(count);
-        slideRef.current.classList.add("fade-anim");
+        slideRef?.current?.classList?.add("fade-anim");
     };
     const handleOnPrevClick = () => {
         const productsLength = featuredProducts.length;
         count = (currentIndex + productsLength - 1) % productsLength;
         setCurrentIndex(count);
-        slideRef.current.classList.add("fade-anim");
+        slideRef?.current?.classList?.add("fade-anim");
     };
     const handleClick = (index) => {
         setCurrentIndex(index)
@@ -61,9 +61,9 @@ const BlogCarousel = () => {
 
         <div ref={slideRef} id="indicators-carousel" className="relative w-full" data-carousel="static">
 
-            <div className="overflow-hidden relative w-full h-48 sm:h-96">
+            <div className="overflow-hidden relative w-full h-52 sm:h-96">
 
-                <div className="duration-700 ease-in-out absolute justify-center items-center inset-0 bg-gradient-to-b from-gray-800 to-gray-500 overflow-hidden  transition-all transform translate-x-0 z-20" data-carousel-item="active">
+                <div className="duration-700 ease-in-out absolute justify-center items-center inset-0 bg-gradient-to-b from-gray-800 to-gray-500 overflow-hidden transition-all transform translate-x-0 z-20" data-carousel-item="active">
                     <img src={featuredProducts[currentIndex]} className="block absolute bg-cover overflow-hidden top-1/2 left-1/2 w-full mix-blend-overlay -translate-x-1/2 -translate-y-1/2" alt="..." />
                 </div>
 

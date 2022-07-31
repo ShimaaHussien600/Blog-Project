@@ -4,7 +4,6 @@ import { BsEnvelope } from "react-icons/bs";
 const Newsletter = () => {
     return (
         <section className="bg-gray-light mt-20 h-50 text-center justify-center items-center">
-
             <div className="flex flex-col w-5/6 mx-auto py-5 text-center justify-center items-center">
                 <p className="py-2 w-full text-center text-gray-dark text-lg">اشترك في النشرة البريدية</p>
                 <p className="py-2 w-full text-center text-gray-txt text-xbase">وكن أول من يعلم عن كل جديد في عالم التجارة الالكترونية</p>
