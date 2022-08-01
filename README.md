@@ -28,15 +28,15 @@ A new browser window should automatically open displaying the app.  If it doesn'
 
 - [Home-Page]
 
-![Home Page](utils/screenshots/homePage.png "Home Page")
+![Home Page](/utils/screenshots/homePage.png "Home Page")
 
 - [Report-Page]
 
-![Report Page](utils/screenshots/reports.jpeg "Report Page")
+![Report Page](/utils/screenshots/reports.jpeg "Report Page")
 
 - [article-Page]
 
-![article Page](utils/screenshots/article.png "article Page")
+![article Page](/utils/screenshots/article.png "article Page")
 
 
 ## Tools
@@ -61,8 +61,8 @@ used tailwindcss in ways of @apply and @layer in some fields to make the code mo
 - [Next Documentation](https://nextjs.org/docs/getting-started)
 - [TypeScript with Next](https://nextjs.org/learn/excel/typescript)
 - [Tailwind css](https://tailwindcss.com/docs/installation)
-- [geeksforgeeks.com] (https://www.geeksforgeeks.org/)
-- [medium.com] (https://medium.com/)
-- [stackoverflow.com] (https://stackoverflow.com/)
+- [Geeks for Geeks](https://www.geeksforgeeks.org/)
+- [medium](https://medium.com/)
+- [Stackoverflow](https://stackoverflow.com/)
 
 
