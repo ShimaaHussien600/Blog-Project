@@ -1,34 +1,65 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Blog Project (NextJS + Tailwindcss)
+---
 
-## Getting Started
+## Project OverView:
 
-First, run the development server:
+The overview of the project is a small blog project that have number of articles and sliders .
+also an article details data with comment section.
 
-```bash
-npm run dev
-# or
-yarn dev
+## How to Load the App
+
+```
+git clone https://github.com/ShimaaHussien600/Blog-Project.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- install all project dependencies with
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+```
+npm install
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+Once all of the dependencies have been installed you can launch the app with
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+```
+npm run dev
+```
 
-## Learn More
+A new browser window should automatically open displaying the app.  If it doesn't, navigate to [http://localhost:3000/](http://localhost:3000/) in your browser
 
-To learn more about Next.js, take a look at the following resources:
+- [Home-Page]
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+![Home Page](src/screenshots/homePage.png "Home Page")
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- [Report-Page]
 
-## Deploy on Vercel
+![Report Page](src/screenshots/reports.jpeg "Report Page")
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- [article-Page]
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+![article Page](src/screenshots/article.png "article Page")
+
+
+## Tools
+
+- [Nextjs]
+- [Tailwindcss]
+- [Redux_tollkit]
+- [Axios]
+- [SSR]
+- [SVG]
+- [react-icons]
+
+### What I have Learned 
+* Next js
+choosed Next as it is server side rendering, preloaded with many things while deploying production_Ready app.
+* TypeScript
+Typescript because it helps to write less error-prone code , is decomentation in itself and helps with project-maintenance far into the future.
+* Tailwindcss
+used tailwindcss in ways of @apply and @layer in some fields to make the code more cleaner but didn't use it too much to not throw away all of workflow and maintainability that tailwind gives.
+
+### Resources and Documentation:
+- [Create-react-app Documentation](https://github.com/facebookincubator/create-react-app)
+- [React Router Documentation](http://knowbody.github.io/react-router-docs/)
+- [React API](https://facebook.github.io/react/docs/react-api.html)
+
+
