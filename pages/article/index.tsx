@@ -11,7 +11,11 @@ function Article() {
     // const dispatch = useDispatch();
     const response = blogsData;
     const data = JSON.parse(JSON.stringify(response));
-    const blogData = data?.mainBlog
+    const blogData = data?.articles
+    const articleDetails = data?.mainBlog
+
+    const paragraph = (articleDetails?.paragraph).split("\n")
+    const content = (articleDetails?.content).split("\n")
 
     const addNewComment = (comment: object) => {
         // dispatch(addComment(comment));
@@ -21,14 +25,14 @@ function Article() {
         <div className="w-full justify-center items-center bg-gray-baby">
             <div className="w-full sm:h-[315px] h-[260px] flex flex-col justify-center items-center bg-cover bg-[url('https://imgs.developpaper.com/imgs/20211130144758750.png')]">
                 <div className="sm:w-5/6 w-11/12 justify-start">
-                    <p className="sm:w-9/12 w-full sm:text-bigxl text-sxl text-white py-5">خطوات عملية حول كيفية بيع المنتجات على الإنترنت</p>
+                    <p className="sm:w-9/12 w-full sm:text-bigxl text-sxl text-white py-5">{articleDetails?.title}</p>
                 </div>
                 <div className="w-5/6 flex flex-row items-center justify-start">
                     <div className="w-10 h-10 flex rounded-full my-2 justify-center items-center overflow-hidden shadow-lg">
                         <img className="w-full h-full bg-cover overflow-hidden shadow-lg"
                             src="https://img.favpng.com/25/6/13/patrick-dempsey-derek-shepherd-grey-s-anatomy-patrick-star-dr-mark-sloan-png-favpng-fkGHcw18tmKFdZKSJUi2TSUdA.jpg"></img>
                     </div>
-                    <span className="text-white text-sm mx-2 my-5">بواسطة / {blogData?.author}  |  منذ  :1/24/2022</span>
+                    <span className="text-white text-sm mx-2 my-5">بواسطة / {articleDetails?.author}  |  منذ  :{articleDetails?.time}</span>
                 </div>
             </div>
             <div className="w-full flex justify-center items-center">
@@ -36,76 +40,50 @@ function Article() {
                     <div className="w-11/12 flex flex-col justify-center">
                         <div className="w-full sm:h-[350px] flex rounded my-2 justify-center items-center overflow-hidden shadow-lg">
                             <img className="w-full bg-cover"
-                                src="https://www.vcbay.news/wp-content/uploads/2020/09/social-Finance.jpg" />
+                                src={articleDetails?.img1} />
                         </div>
                         <p className="text-xbase text-gray-txt2 my-5">
-                            %60 من السعوديين الآن عن شراء منتج أو خدمة عبر الإنترنت كل شهر،إذا كنت ترغب في تحقيق الربح من ذلك ومعرفة كيفية بيع المنتجات على الإنترنت فأنت في المكان الصحيح مبلغ .
-                            <br />
-                            قطع تأشيرتك إلى عالم زيادة الأعمال،بدء أعمالك عبر تشير التقديرات إلى أن عدد المتسوقين عبر الإنترنت في المملكة سيشهد زيادة كبيرة بحلول عام 2022،لتصل إلى 19.3.
-                            مليون يمنحك البيع عبر الإنترنت فرصة لكسب المال عبر الإنترنت.
-                            <br />
-                            البدء في غضون فترة زمنية معقولة دون استثمار مبلغ ضخم من المال،ولكن العديد من التجار الإلكترونيين المبتدلين يتساءلون في كل مرة عن كيفية بيع المنتجات على الإنترنت.
-                            <br />
-                            الانترنت سهل نسينا ومن الممكن.
-                            <br />
-                            والإستراتيجيات المختلفة للبدأ في أفضل الظروف الممكنة،إذا كان لديك روح التاجر الإلكتروني،وليد فتح متجر إلكتروني،ولكنك لا تعرف كيفية بيع المنتجات على الإنترنت؟لا داعي للقلق سنرشدك خطوة بخطوة،بتقديم بعض النصائح .
+                            {paragraph.map(item =>
+                                <div>
+                                    {item}
+                                    <br />
+                                </div>
+                            )}
+
                         </p>
                         <div className="border-r-2 border-green p-2 justify-start">
-                            <p className="text-lg">ما فوائد بيع المنتجات على الإنترنت؟</p>
+                            <p className="text-lg">{articleDetails?.subTitle1}</p>
                         </div>
                         <p className="text-xbase text-gray-txt2 my-5">
-                            %60 من السعوديين الآن عن شراء منتج أو خدمة عبر الإنترنت كل شهر،إذا كنت ترغب في تحقيق الربح من ذلك ومعرفة كيفية بيع المنتجات على الإنترنت فأنت في المكان الصحيح مبلغ .
-                            <br />
-                            قطع تأشيرتك إلى عالم زيادة الأعمال،بدء أعمالك عبر تشير التقديرات إلى أن عدد المتسوقين عبر الإنترنت في المملكة سيشهد زيادة كبيرة بحلول عام 2022،لتصل إلى 19.3.
-                            مليون يمنحك البيع عبر الإنترنت فرصة لكسب المال عبر الإنترنت.
-                            <br />
-                            البدء في غضون فترة زمنية معقولة دون استثمار مبلغ ضخم من المال،ولكن العديد من التجار الإلكترونيين المبتدلين يتساءلون في كل مرة عن كيفية بيع المنتجات على الإنترنت.
-                            <br />
-                            الانترنت سهل نسينا ومن الممكن.
-                            <br />
-                            والإستراتيجيات المختلفة للبدأ في أفضل الظروف الممكنة،إذا كان لديك روح التاجر الإلكتروني،وليد فتح متجر إلكتروني،ولكنك لا تعرف كيفية بيع المنتجات على الإنترنت؟لا داعي للقلق سنرشدك خطوة بخطوة،بتقديم بعض النصائح .
+                            {paragraph.map(item =>
+                                <div>
+                                    {item}
+                                    <br />
+                                </div>
+                            )}
                         </p>
+
                         <div className="border-r-2 border-green p-2 justify-start">
-                            <p className="text-lg">ما الذي ستبيعه على الانترنت؟</p>
+                            <p className="text-lg">{articleDetails?.subTitle1}</p>
                         </div>
                         <div className="w-full sm:h-[400px] flex rounded my-2 justify-center items-center overflow-hidden shadow-lg">
                             <img className="w-full bg-cover"
-                                src="https://www.phocassoftware.com/hubfs/%5Bactive%5D-Blog-Images/how-to-measure-stock-on-hand-over-stock-under-stock-and-dead-stock-quickly-and-simply-1.jpg" />
+                                src={articleDetails?.img2} />
                         </div>
                         <p className="text-xbase text-gray-txt2 my-5">
-                            %60 من السعوديين الآن عن شراء منتج أو خدمة عبر الإنترنت كل شهر،إذا كنت ترغب في تحقيق الربح من ذلك ومعرفة كيفية بيع المنتجات على الإنترنت فأنت في المكان الصحيح مبلغ .
-                            <br />
-                            قطع تأشيرتك إلى عالم زيادة الأعمال،بدء أعمالك عبر تشير التقديرات إلى أن عدد المتسوقين عبر الإنترنت في المملكة سيشهد زيادة كبيرة بحلول عام 2022،لتصل إلى 19.3.
-                            مليون يمنحك البيع عبر الإنترنت فرصة لكسب المال عبر الإنترنت.
-                            <br />
-                            البدء في غضون فترة زمنية معقولة دون استثمار مبلغ ضخم من المال،ولكن العديد من التجار الإلكترونيين المبتدلين يتساءلون في كل مرة عن كيفية بيع المنتجات على الإنترنت.
-                            <br />
-                            الانترنت سهل نسينا ومن الممكن.
-                            <br />
-                            والإستراتيجيات المختلفة للبدأ في أفضل الظروف الممكنة،إذا كان لديك روح التاجر الإلكتروني،وليد فتح متجر إلكتروني،ولكنك لا تعرف كيفية بيع المنتجات على الإنترنت؟لا داعي للقلق سنرشدك خطوة بخطوة،بتقديم بعض النصائح .
-                            <br />
-                            %60 من السعوديين الآن عن شراء منتج أو خدمة عبر الإنترنت كل شهر،إذا كنت ترغب في تحقيق الربح من ذلك ومعرفة كيفية بيع المنتجات على الإنترنت فأنت في المكان الصحيح مبلغ .
-                            <br />
-                            قطع تأشيرتك إلى عالم زيادة الأعمال،بدء أعمالك عبر تشير التقديرات إلى أن عدد المتسوقين عبر الإنترنت في المملكة سيشهد زيادة كبيرة بحلول عام 2022،لتصل إلى 19.3.
-                            مليون يمنحك البيع عبر الإنترنت فرصة لكسب المال عبر الإنترنت.
-                            <br />
-                            البدء في غضون فترة زمنية معقولة دون استثمار مبلغ ضخم من المال،ولكن العديد من التجار الإلكترونيين المبتدلين يتساءلون في كل مرة عن كيفية بيع المنتجات على الإنترنت.
-                            <br />
-                            الانترنت سهل نسينا ومن الممكن.
-                            <br />
-                            والإستراتيجيات المختلفة للبدأ في أفضل الظروف الممكنة،إذا كان لديك روح التاجر الإلكتروني،وليد فتح متجر إلكتروني،ولكنك لا تعرف كيفية بيع المنتجات على الإنترنت؟لا داعي للقلق سنرشدك خطوة بخطوة،بتقديم بعض النصائح .
-                        </p>
+                            {content.map(item =>
+                                <div>
+                                    {item}
+                                    <br />
+                                </div>
+                            )}</p>
                         <div className="w-full flex sm:flex-row flex-col border-y border-light-gray py-4 mb-2 justify-between items-center">
                             <div className="flex flex-row my-2">
-                                <div className="rounded-full bg-gray-light p-2 mx-1 flex justify-center items-center">
-                                    #تسويق
-                                </div>
-                                <div className="rounded-full bg-gray-light p-2 mx-1 flex justify-center items-center">
-                                    #استراتيجيات
-                                </div>
-                                <div className="rounded-full bg-gray-light p-2 mx-1 flex justify-center items-center">
-                                    #بيع_المنتجات
-                                </div>
+                                {(articleDetails?.hashtags).map(item =>
+                                    <div className="rounded-full bg-gray-light p-2 mx-1 flex justify-center items-center">
+                                        #{item}
+                                    </div>
+                                )}
                             </div>
                             <div className="flex flex-row my-2">
                                 <div className="w-8 h-8 rounded-full border border-light-gray mx-1 flex justify-center items-center">
@@ -120,10 +98,10 @@ function Article() {
                             </div>
                         </div>
                         <div className="flex flex-col my-2">
-                            <p className="text-lg border-r-2 border-green p-2 ">التعليقات ( 3 )</p>
-                            <CommentItem />
-                            <CommentItem />
-                            <CommentItem />
+                            <p className="text-lg border-r-2 border-green p-2 ">التعليقات ( {(articleDetails?.comments).length} )</p>
+                            {(articleDetails?.comments).map(item =>
+                                <CommentItem commentItem={item} />
+                            )}
                         </div>
                         <p className="text-lg border-r-2 border-green p-2 my-4 ">كن اول من يعلق</p>
                         <form action="/send-data-here" method="post">

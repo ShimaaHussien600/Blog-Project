@@ -41,7 +41,7 @@ export default function Home(props) {
         </div>
         <div className="md:container md:mx-auto grid xl:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 place-items-center mt-5 gap-4">
           {articlesData.map(item =>
-            <OverlayCard artilesData={item} brief />
+            <OverlayCard articleDetails={item} brief />
           )}
         </div>
         <div className="flex sm:flex-row flex-col justify-center md:gap-8 gap-6 items-center border-b border-light-gray sm:px-4 py-10 my-10">
@@ -53,7 +53,7 @@ export default function Home(props) {
           </div>
         </div>
         <div className="flex w-full justify-center items-center">
-          <OverlayCard artilesData={articlesData[0]} full />
+          <OverlayCard articleDetails={articlesData[0]} full />
         </div>
         <div className="flex flex-row w-full justify-between items-center my-5">
           <div className="sm:inline-flex my-5">
@@ -93,7 +93,7 @@ export default function Home(props) {
               <RoportCard article={item} withoutImg />
             )}
           </div>
-          <OverlayCard artilesData={articlesData[0]} big />
+          <OverlayCard articleDetails={articlesData[0]} big />
         </div>
       </div>
     </div>
