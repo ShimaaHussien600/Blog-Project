@@ -173,7 +173,7 @@ const ArticleDetail = () => {
                     <ToastContainer />
                 </div>
                 :
-                <Loader isLoading />
+                <Loader isLoading={true} />
             }
         </div>
     )

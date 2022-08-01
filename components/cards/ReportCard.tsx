@@ -1,8 +1,15 @@
 import React from "react";
 import { useRouter } from 'next/router'
+import { Article } from "../../interfaces/index";
 
-const RoportCard = (props) => {
-    const { width, widthSM, space, horiz, withoutImg, article } = props;
+type RoportCardProps = {
+    article: Article, 
+    space?: boolean, 
+    horiz?: boolean, 
+    withoutImg?: boolean
+  }
+
+const RoportCard = ({ space, horiz, withoutImg, article }: RoportCardProps) => {
 
     const router = useRouter()
 

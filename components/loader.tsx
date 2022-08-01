@@ -1,7 +1,9 @@
 import React from "react";
+type LoaderProps = {
+    isLoading: boolean
+}
 
-const Loader = (props) => {
-    const { isLoading } = props
+const Loader = ({ isLoading }: LoaderProps) => {
 
     return (
         isLoading ?

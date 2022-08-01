@@ -1,7 +1,12 @@
 import React from "react";
 import { BiStopwatch } from "react-icons/bi";
+import { Comment } from "../interfaces/index";
 
-const CommentItem = ({commentItem}) => {
+type CommentItemProps = {
+    commentItem: Comment
+}
+
+const CommentItem = ({ commentItem }: CommentItemProps) => {
     return (
         <div className="flex flex-col border-b border-light-gray py-4">
             <div className="w-full flex sm:flex-row flex-col justify-between">

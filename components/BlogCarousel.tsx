@@ -1,10 +1,15 @@
 import React, { useState, useEffect, useRef } from "react";
+import { Slider } from "../interfaces/index";
 
 let count = 0;
 let slideInterval;
 
-const BlogCarousel = ({ slider }) => {
-    const sliderImgs = slider?.imgs
+type BlogCarouselProps = {
+    sliderData: Slider
+}
+
+const BlogCarousel = ({ sliderData }: BlogCarouselProps) => {
+    const sliderImgs = sliderData?.imgs
     const [currentIndex, setCurrentIndex] = useState(0);
 
     const slideRef = useRef();
@@ -70,8 +75,8 @@ const BlogCarousel = ({ slider }) => {
             </div>
 
             <div className="flex flex-col absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-30">
-                <p className="sm:text-x2l text-sxl text-center text-bold text-white my-2">{slider?.header}</p>
-                <p className="sm:text-xl text-sm text-center text-white">{slider?.body}</p>
+                <p className="sm:text-x2l text-sxl text-center text-bold text-white my-2">{sliderData?.header}</p>
+                <p className="sm:text-xl text-sm text-center text-white">{sliderData?.body}</p>
             </div>
 
             <button type="button" className="flex absolute top-0 left-0 sm:left-28 z-30 justify-center items-center px-4 h-full cursor-pointer group focus:outline-none" data-carousel-prev=""

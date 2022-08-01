@@ -1,8 +1,16 @@
 import React from "react";
 import { useRouter } from 'next/router'
+import { Article } from "../../interfaces/index";
 
-const OverlayCard = (props) => {
-    const { articleDetails, full, big, brief } = props;
+type OverlayCardProps = {
+    articleDetails: Article, 
+    full?: boolean, 
+    big?: boolean, 
+    brief?: boolean
+  }
+  
+const OverlayCard = ({ articleDetails, full, big, brief }: OverlayCardProps) => {
+
     const router = useRouter()
 
     const handleOnClick = () => {

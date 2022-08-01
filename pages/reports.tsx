@@ -15,11 +15,11 @@ export default function Reports() {
         <h1 className="text-xxl text-center p-5">التقارير والدراسات</h1>
         {articles.length > 0 ? <div className="md:container md:mx-auto grid xl:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 place-items-center mt-5 gap-4">
           {articles.map(item =>
-            <RoportCard article={item} width={"360px"} widthSM={"333px"} space />
+            <RoportCard article={item} space={true} />
           )}
         </div>
           :
-          <Loader isLoading />
+          <Loader isLoading={true} />
         }
       </div>
     </div>

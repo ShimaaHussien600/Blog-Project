@@ -169,7 +169,7 @@ function Article() {
                     <ToastContainer />
                 </div>
                 :
-                <Loader isLoading />
+                <Loader isLoading={true} />
             }
         </div>
     )
