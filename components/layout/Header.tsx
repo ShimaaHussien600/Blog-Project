@@ -33,11 +33,6 @@ const Header = () => {
           <Logo />
         </div>
 
-        <div className='flex'>
-          <div className='bg-gray-baby w-35 h-35 rounded-full justify-center items-center'>
-            <SearchIcon />
-          </div>
-        </div>
         {/*in this div we will use a ternary operator to decide whether or not to display the content of the div  */}
         <div
           className={`${active ? '' : 'hidden'

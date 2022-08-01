@@ -8,6 +8,7 @@ import { useAppDispatch, useAppSelector } from "../app/hooks";
 import { blogArticlesSelector } from "../features/blog/selectors";
 import { getBlogArticlesdata } from "../features/blog/actions";
 import { wrapper } from "../app/store";
+import Loader from "../components/loader";
 
 let blogsData = require('../services/articlesData.json');
 
@@ -30,7 +31,8 @@ export default function Home(props) {
 
   return (
     <div className="w-full flex flex-col pt-17 justify-center items-center">
-      <BlogCarousel slider={slider} />
+      {slider && <BlogCarousel slider={slider} />}
+      {articlesData.length > 0 ?
       <div className="md:w-11/12 w-5/6 justify-center items-center">
         <div className="flex flex-row justify-between items-center mt-12">
           <p className="text-l">الأكثر قراءة</p>
@@ -96,6 +98,9 @@ export default function Home(props) {
           <OverlayCard articleDetails={articlesData[0]} big />
         </div>
       </div>
+      :
+      <Loader isLoading/>
+            }
     </div>
   )
 }
