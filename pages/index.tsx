@@ -4,10 +4,6 @@ import RoportCard from "../components/cards/ReportCard"
 import { MdArrowBackIosNew } from "react-icons/md";
 import { RiArrowLeftCircleLine, RiArrowRightCircleLine } from "react-icons/ri";
 import OverlayCard from "../components/cards/OverlayCard";
-import { useAppDispatch, useAppSelector } from "../app/hooks";
-import { blogArticlesSelector } from "../features/blog/selectors";
-import { getBlogArticlesdata } from "../features/blog/actions";
-import { wrapper } from "../app/store";
 import Loader from "../components/loader";
 
 let blogsData = require('../services/articlesData.json');
@@ -15,13 +11,6 @@ let blogsData = require('../services/articlesData.json');
 export default function Home(props) {
   const { articles, slider, mainBlog } = props.data
   const [openedTab, setOpenedTab] = useState(1);
-
-  // const dispatch = useAppDispatch();
-  // const {
-  //   data,
-  //   pending,
-  //   error,
-  // } = useAppSelector(blogArticlesSelector);
   
   const handleTabClick = (e, tab) => {
     setOpenedTab(tab);
@@ -120,7 +109,3 @@ export async function getServerSideProps(context) {
       props: { data }, // will be passed to the page component as props
     }
 }
-// export const getServerSideProps = wrapper.getServerSideProps(
-//   (store) => async () => {
-    
-//   })

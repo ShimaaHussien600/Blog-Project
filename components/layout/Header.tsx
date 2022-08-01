@@ -1,13 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Link from 'next/link';
 import { useState } from 'react';
 import Logo from './Logo';
 import TabIcon from '../icons/svgs/TabIcon';
-import SearchIcon from '../icons/svgs/SearchIcon';
+import { useRouter } from "next/router";
 
-const Header = () => {
+export default function Header() {
   const [openedTab, setOpenedTab] = useState(1);
   const [active, setActive] = useState(false);
+  const router = useRouter()
 
   const handleClick = () => {
     setActive(!active);
@@ -17,6 +18,14 @@ const Header = () => {
     // e.preventDefault();
     setOpenedTab(tab);
   }
+
+  useEffect(() => {
+    const currentUrl = router.pathname
+
+    if (currentUrl === '/') setOpenedTab(1)
+    else if (currentUrl === '/reports') setOpenedTab(3)
+    else setOpenedTab(2)
+  }, [router.pathname])
 
   return (
     <div className='flex w-full bg-white justify-center'>
@@ -50,7 +59,7 @@ const Header = () => {
               <a className={`${openedTab === 2 ?
                 'border-b-2 border-green text-green' : 'text-black'} sm:inline-flex sm:w-auto px-3 py-2 mx-3 font-base items-center justify-center hover:text-green`}
                 onClick={(e) => handleTabClick(e, 2)}
-                >
+              >
                 المقالات
               </a>
             </Link>
@@ -72,5 +81,3 @@ const Header = () => {
     </div>
   );
 };
-
-export default Header;

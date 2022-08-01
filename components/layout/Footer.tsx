@@ -10,7 +10,7 @@ const Footer = () => {
         <footer className="bg-gray-light mx-auto justify-center h-72">
             <Newsletter />
             <div className="flex w-full sm:h-24 h-50 my-15 justify-center items-center bg-white">
-                <div className="w-5/6 mx-auto flex sm:flex-row flex-col justify-between sm:pb:auto pb-6 items-center">
+                <div className="w-5/6 mx-auto flex sm:flex-row flex-col justify-between sm:pb-0 pb-6 items-center">
                     <p className="py-5 sm:w-1/4 w-full text-center text-gray-txt text-sm">جميع الحقوق محفوظة لشركة مدونة 2022</p>
                     <div className="flex w-2/4 justify-center items-center sm:flex-row flex-col">
 
@@ -37,7 +37,7 @@ const Footer = () => {
                             </Link>
 
                         </div>
-                        <button className='px-10 py-5 m-4 sm:w-auto w-full rounded bg-orange text-sm text-white'>كن كاتب معنا </button>
+                        <button className='px-10 py-4 my-4 sm:w-auto w-full rounded bg-orange text-sm text-white'>كن كاتبا معنا</button>
                     </div>
                     <p className="text-gray-txt sm:w-1/4 w-full text-center text-sm">الشروط والاحكام</p>
                 </div>

@@ -2,8 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { FaFacebookF, FaLinkedinIn, FaTwitter } from "react-icons/fa";
 import CommentItem from "../../../components/CommentItem";
-import { useSelector, useDispatch } from "react-redux";
-import { addComment } from "../../../features/slices/blogArticlesSlice";
 import Loader from "../../../components/loader";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -24,15 +22,24 @@ const ArticleDetail = () => {
     const paragraph = (articleDetails?.paragraph).split("\n")
     const content = (articleDetails?.content).split("\n")
 
-    const addNewComment = (comment: object) => {
-        // dispatch(addComment(comment));
-    };
+    const [state, setState] = useState({
+        email: "",
+        message: "",
+        name: ""
+    });
 
+    const handleChange = (e) => {
+        setState({ ...state, [e.target.name]: e.target.value });
+    }
     const submitContact = async (event) => {
         event.preventDefault();
+        setState({
+            email: "",
+            message: "",
+            name: ""
+        });
 
         const { name, message } = event.target
-
         let newComment = {
             "name": name.value,
             "time": "قليل",
@@ -40,9 +47,9 @@ const ArticleDetail = () => {
         };
         setNewComment(newComment);
         (articleDetails?.comments).push(newComment)
-        toast.success("لقد تم ارسال تعليقك", "success")
+        toast.success("لقد تم ارسال تعليقك")
     };
-    
+
     useEffect(() => {
         const isEmpty = Object.keys(newComment).length === 0;
         let newArticleData = articleDetails
@@ -54,7 +61,7 @@ const ArticleDetail = () => {
 
     const isEmpty = Object.keys(articleDetails).length === 0;
     return (
-        <>
+        <div>
             {!isEmpty ?
                 <div className="w-full justify-center items-center bg-gray-baby">
                     <div className="w-full sm:h-[315px] h-[260px] flex flex-col justify-center items-center bg-cover bg-[url('https://imgs.developpaper.com/imgs/20211130144758750.png')]">
@@ -76,26 +83,25 @@ const ArticleDetail = () => {
                                     <img className="w-full bg-cover"
                                         src={articleDetails?.img1} />
                                 </div>
-                                <p className="text-xbase text-gray-txt2 my-5">
+                                <div className="my-5">
                                     {paragraph.map(item =>
-                                        <div>
+                                        <h1 className="text-xbase text-gray-txt2">
                                             {item}
                                             <br />
-                                        </div>
+                                        </h1>
                                     )}
-
-                                </p>
+                                </div>
                                 <div className="border-r-2 border-green p-2 justify-start">
                                     <p className="text-lg">{articleDetails?.subTitle1}</p>
                                 </div>
-                                <p className="text-xbase text-gray-txt2 my-5">
+                                <div className="my-5">
                                     {paragraph.map(item =>
-                                        <div>
+                                        <h1 className="text-xbase text-gray-txt2">
                                             {item}
                                             <br />
-                                        </div>
+                                        </h1>
                                     )}
-                                </p>
+                                </div>
 
                                 <div className="border-r-2 border-green p-2 justify-start">
                                     <p className="text-lg">{articleDetails?.subTitle1}</p>
@@ -104,13 +110,14 @@ const ArticleDetail = () => {
                                     <img className="w-full bg-cover"
                                         src={articleDetails?.img2} />
                                 </div>
-                                <p className="text-xbase text-gray-txt2 my-5">
+                                <div className="my-5">
                                     {content.map(item =>
-                                        <div>
+                                        <h1 className="text-xbase text-gray-txt2">
                                             {item}
                                             <br />
-                                        </div>
-                                    )}</p>
+                                        </h1>
+                                    )}
+                                </div>
                                 <div className="w-full flex sm:flex-row flex-col border-y border-light-gray py-4 mb-2 justify-between items-center">
                                     <div className="flex flex-row my-2">
                                         {(articleDetails?.hashtags).map(item =>
@@ -141,19 +148,19 @@ const ArticleDetail = () => {
                                 <form action="/send-data-here" method="post" onSubmit={submitContact}>
 
                                     <label htmlFor="message" className="block mb-2 text-sm text-black">اكتب تعليقك</label>
-                                    <textarea id="message" rows={4} className="block p-2.5 w-full text-sm text-black rounded-sm border border-gray-border dark:placeholder-gray-400 dark:text-white"
+                                    <textarea id="message" name="message" rows={4} onChange={handleChange} value={state.message} className="block p-2.5 w-full text-sm text-black rounded-sm border border-gray-border dark:placeholder-gray-400 dark:text-white"
                                         placeholder="برجاء كتابه التعليق الخاص بك" required />
 
                                     <div className="flex flex-row justify-between items-center">
                                         <div className="mb-6 w-2/5 gab-4">
                                             <label htmlFor="name" className="block mb-2 text-sm text-black">الاسم</label>
-                                            <input type="name" id="name" className="block p-2.5 w-full text-sm text-black rounded-sm border border-gray-border dark:placeholder-gray-400 dark:text-white"
+                                            <input type="name" name="name" id="name" onChange={handleChange} value={state.name} className="block p-2.5 w-full text-sm text-black rounded-sm border border-gray-border dark:placeholder-gray-400 dark:text-white"
                                                 placeholder="برجاء ادخال الاسم" required />
                                         </div>
 
                                         <div className="mb-6 w-2/5 gab-4">
                                             <label htmlFor="email" className="block mb-2 text-sm text-black">البريد الالكترونى</label>
-                                            <input type="email" id="email" className="block p-2.5 w-full text-sm text-black rounded-sm border border-gray-border dark:placeholder-gray-400 dark:text-white"
+                                            <input type="email" name="email" id="email" onChange={handleChange} value={state.email} className="block p-2.5 w-full text-sm text-black rounded-sm border border-gray-border dark:placeholder-gray-400 dark:text-white"
                                                 placeholder="برجاء ادخال البريد الالكترونى" required />
                                         </div>
                                     </div>
@@ -168,7 +175,7 @@ const ArticleDetail = () => {
                 :
                 <Loader isLoading />
             }
-        </>
+        </div>
     )
 }
 
