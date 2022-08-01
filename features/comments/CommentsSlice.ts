@@ -13,10 +13,10 @@ export const BlogArticleSlice = createSlice({
     name: 'BlogArticle',
     initialState,
     reducers: {
-        // addComment: (state, action: PayloadAction<Array<object>>){
-            
-        // }
-    },
+        addComment: (state, action: PayloadAction<object>) => {
+            state.comments = [...state.comments, action.payload]
+        }
+    }
 })
 
 // Action creators are generated for each case reducer function

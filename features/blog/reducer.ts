@@ -19,17 +19,17 @@ export const blogArticleReducer = createReducer(initialState, builder => {
     // Doing this is good practice as we can tap into the status of the API call and give our users an idea of what's happening in the background.
 
     builder
-        .addCase(getBlogArticlesdata.pending, state => {
-            state.pending = true;
-        })
-        .addCase(getBlogArticlesdata.fulfilled, (state, { payload }) => {
-            state.pending = false;
-            state.data = payload;
-        })
-        .addCase(getBlogArticlesdata.rejected, state => {
-            state.pending = false;
-            state.error = true;
-        });
+        // .addCase(getBlogArticlesdata.pending, state => {
+        //     state.pending = true;
+        // })
+        // .addCase(getBlogArticlesdata.fulfilled, (state, { payload }) => {
+        //     state.pending = false;
+        //     state.data = payload;
+        // })
+        // .addCase(getBlogArticlesdata.rejected, state => {
+        //     state.pending = false;
+        //     state.error = true;
+        // });
 });
 
 export default blogArticleReducer;

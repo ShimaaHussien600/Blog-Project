@@ -1,7 +1,7 @@
 import '../styles/globals.css'
 import { AppProps } from 'next/app';
 import Layout from '../components/layout/index';
-import { store, wrapper } from '../app/store'
+import { store } from '../app/store'
 import { Provider } from 'react-redux'
 import SEO from "@bradgarropy/next-seo"
 

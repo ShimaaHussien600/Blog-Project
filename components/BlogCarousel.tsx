@@ -15,7 +15,7 @@ const BlogCarousel = ({ sliderData }: BlogCarouselProps) => {
     const sliderImgs = sliderData?.imgs
     const [currentIndex, setCurrentIndex] = useState(0);
 
-    const slideRef = useRef();
+    const slideRef = useRef<HTMLInputElement>(null);
 
     const removeAnimation = () => {
         slideRef?.current?.classList?.remove("fade-anim");

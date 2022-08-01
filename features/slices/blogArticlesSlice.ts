@@ -18,7 +18,7 @@ export const blogArticlesSlice = createSlice({
     name: 'blogArticles',
     initialState,
     reducers: {
-        addComment: (state, action: PayloadAction<number>) => {
+        addComment: (state, action: PayloadAction<object>) => {
             state.blogArticles = [...state.blogArticles, action.payload]
         }
     }

@@ -14,7 +14,10 @@ const ArticleDetail = () => {
     const response = blogsData;
     const data = JSON.parse(JSON.stringify(response));
     const blogData = data?.articles
-    let article = articleId ? blogData[articleId] : data?.mainBlog
+    const index = +articleId
+    let item = blogData.find(item => item.id === index);
+
+    let article = articleId ? item : data?.mainBlog
 
     const [newComment, setNewComment] = useState({});
     const [articleDetails, setArticleDetails] = useState(article);
