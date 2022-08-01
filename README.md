@@ -28,15 +28,15 @@ A new browser window should automatically open displaying the app.  If it doesn'
 
 - [Home-Page]
 
-![Home Page](src/screenshots/homePage.png "Home Page")
+![Home Page](utils/screenshots/homePage.png "Home Page")
 
 - [Report-Page]
 
-![Report Page](src/screenshots/reports.jpeg "Report Page")
+![Report Page](utils/screenshots/reports.jpeg "Report Page")
 
 - [article-Page]
 
-![article Page](src/screenshots/article.png "article Page")
+![article Page](utils/screenshots/article.png "article Page")
 
 
 ## Tools
@@ -58,8 +58,11 @@ Typescript because it helps to write less error-prone code , is decomentation in
 used tailwindcss in ways of @apply and @layer in some fields to make the code more cleaner but didn't use it too much to not throw away all of workflow and maintainability that tailwind gives.
 
 ### Resources and Documentation:
-- [Create-react-app Documentation](https://github.com/facebookincubator/create-react-app)
-- [React Router Documentation](http://knowbody.github.io/react-router-docs/)
-- [React API](https://facebook.github.io/react/docs/react-api.html)
+- [Next Documentation](https://nextjs.org/docs/getting-started)
+- [TypeScript with Next](https://nextjs.org/learn/excel/typescript)
+- [Tailwind css](https://tailwindcss.com/docs/installation)
+- [geeksforgeeks.com] (https://www.geeksforgeeks.org/)
+- [medium.com] (https://medium.com/)
+- [stackoverflow.com] (https://stackoverflow.com/)
 
 
