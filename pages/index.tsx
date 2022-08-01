@@ -37,15 +37,15 @@ export default function Home(props) {
             </div>
           </div>
           <div className="md:container md:mx-auto grid xl:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 place-items-center mt-5 gap-4">
-            {articlesData.map(item =>
-              <OverlayCard articleDetails={item} brief={true} />
+            {articlesData.map((item, index) =>
+              <OverlayCard key={index.toString()} articleDetails={item} brief={true} />
             )}
           </div>
           <div className="flex sm:flex-row flex-col justify-center md:gap-8 gap-6 items-center border-b border-light-gray sm:px-4 py-10 my-10">
             <RoportCard article={mainBlog} />
             <div className="flex flex-col md:gap-8 gap-6 justify-center items-center">
-              {articlesData.map(item =>
-                <RoportCard article={item} horiz={true} />
+              {articlesData.map((item, index) =>
+                <RoportCard key={index.toString()} article={item} horiz={true} />
               )}
             </div>
           </div>
@@ -80,14 +80,14 @@ export default function Home(props) {
 
           </div>
           <div className="md:container md:mx-auto grid xl:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 place-items-center mt-5 gap-4">
-            {articlesData4.map(item =>
-              <RoportCard article={item} space={true} />
+            {articlesData4.map((item, index) =>
+              <RoportCard key={index.toString()} article={item} space={true} />
             )}
           </div>
           <div className="flex sm:flex-row flex-col md:gap-6 gap-4 justify-center items-center sm:px-4 my-10">
             <div className="flex flex-col gap-2 justify-center items-center">
-              {articlesData.map(item =>
-                <RoportCard article={item} withoutImg={true} />
+              {articlesData.map((item, index) =>
+                <RoportCard key={index.toString()} article={item} withoutImg={true} />
               )}
             </div>
             <OverlayCard articleDetails={articlesData[0]} big={true} />

@@ -71,7 +71,7 @@ const ArticleDetail = () => {
                         <div className="w-5/6 flex flex-row items-center justify-start">
                             <div className="w-10 h-10 flex rounded-full my-2 justify-center items-center overflow-hidden shadow-lg">
                                 <img className="w-full h-full bg-cover overflow-hidden shadow-lg"
-                                    src="https://img.favpng.com/25/6/13/patrick-dempsey-derek-shepherd-grey-s-anatomy-patrick-star-dr-mark-sloan-png-favpng-fkGHcw18tmKFdZKSJUi2TSUdA.jpg"></img>
+                                    src="https://img.favpng.com/25/6/13/patrick-dempsey-derek-shepherd-grey-s-anatomy-patrick-star-dr-mark-sloan-png-favpng-fkGHcw18tmKFdZKSJUi2TSUdA.jpg" alt="article" />
                             </div>
                             <span className="text-white text-sm mx-2 my-5">بواسطة / {articleDetails?.author}  |  منذ  :{articleDetails?.time}</span>
                         </div>
@@ -81,11 +81,11 @@ const ArticleDetail = () => {
                             <div className="w-11/12 flex flex-col justify-center">
                                 <div className="w-full sm:h-[350px] flex rounded my-2 justify-center items-center overflow-hidden shadow-lg">
                                     <img className="w-full bg-cover"
-                                        src={articleDetails?.img1} />
+                                        src={articleDetails?.img1} alt="article" />
                                 </div>
                                 <div className="my-5">
-                                    {paragraph.map(item =>
-                                        <h1 className="text-xbase text-gray-txt2">
+                                    {paragraph.map((item, index) =>
+                                        <h1 key={index.toString()} className="text-xbase text-gray-txt2">
                                             {item}
                                             <br />
                                         </h1>
@@ -95,8 +95,8 @@ const ArticleDetail = () => {
                                     <p className="text-lg">{articleDetails?.subTitle1}</p>
                                 </div>
                                 <div className="my-5">
-                                    {paragraph.map(item =>
-                                        <h1 className="text-xbase text-gray-txt2">
+                                    {paragraph.map((item, index) =>
+                                        <h1 key={index.toString()} className="text-xbase text-gray-txt2">
                                             {item}
                                             <br />
                                         </h1>
@@ -108,11 +108,11 @@ const ArticleDetail = () => {
                                 </div>
                                 <div className="w-full sm:h-[400px] flex rounded my-2 justify-center items-center overflow-hidden shadow-lg">
                                     <img className="w-full bg-cover"
-                                        src={articleDetails?.img2} />
+                                        src={articleDetails?.img2} alt="article" />
                                 </div>
                                 <div className="my-5">
-                                    {content.map(item =>
-                                        <h1 className="text-xbase text-gray-txt2">
+                                    {content.map((item, index) =>
+                                        <h1 key={index.toString()} className="text-xbase text-gray-txt2">
                                             {item}
                                             <br />
                                         </h1>
@@ -120,8 +120,8 @@ const ArticleDetail = () => {
                                 </div>
                                 <div className="w-full flex sm:flex-row flex-col border-y border-light-gray py-4 mb-2 justify-between items-center">
                                     <div className="flex flex-row my-2">
-                                        {(articleDetails?.hashtags).map(item =>
-                                            <div className="rounded-full bg-gray-light p-2 mx-1 flex justify-center items-center">
+                                        {(articleDetails?.hashtags).map((item, index) =>
+                                            <div key={index.toString()} className="rounded-full bg-gray-light p-2 mx-1 flex justify-center items-center">
                                                 #{item}
                                             </div>
                                         )}
@@ -140,8 +140,8 @@ const ArticleDetail = () => {
                                 </div>
                                 <div className="flex flex-col my-2">
                                     <p className="text-lg border-r-2 border-green p-2 ">التعليقات ( {(articleDetails?.comments).length} )</p>
-                                    {(articleDetails?.comments).map(item =>
-                                        <CommentItem commentItem={item} />
+                                    {(articleDetails?.comments).map((item, index) =>
+                                        <CommentItem key={index.toString()} commentItem={item} />
                                     )}
                                 </div>
                                 <p className="text-lg border-r-2 border-green p-2 my-4 ">كن اول من يعلق</p>

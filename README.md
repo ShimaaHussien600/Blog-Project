@@ -49,7 +49,7 @@ A new browser window should automatically open displaying the app.  If it doesn'
 - [SVG]
 - [react-icons]
 
-### What I have Learned 
+### Why
 * Next js
 choosed Next as it is server side rendering, preloaded with many things while deploying production_Ready app.
 * TypeScript

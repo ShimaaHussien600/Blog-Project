@@ -14,8 +14,8 @@ export default function Reports() {
       <div className="md:w-11/12 w-5/6 justify-center items-center">
         <h1 className="text-xxl text-center p-5">التقارير والدراسات</h1>
         {articles.length > 0 ? <div className="md:container md:mx-auto grid xl:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 place-items-center mt-5 gap-4">
-          {articles.map(item =>
-            <RoportCard article={item} space={true} />
+          {articles.map((item, index) =>
+            <RoportCard key={index.toString()} article={item} space={true} />
           )}
         </div>
           :
