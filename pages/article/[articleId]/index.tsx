@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { FaFacebookF, FaLinkedinIn, FaTwitter } from "react-icons/fa";
 import CommentItem from "../../../components/CommentItem";
 import { useSelector, useDispatch } from "react-redux";
 import { addComment } from "../../../features/slices/blogArticlesSlice";
 import Loader from "../../../components/loader";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 let blogsData = require('../../../services/articlesData.json');
 
@@ -14,8 +16,10 @@ const ArticleDetail = () => {
     const response = blogsData;
     const data = JSON.parse(JSON.stringify(response));
     const blogData = data?.articles
-    const articleDetails = articleId ? blogData[articleId] : data?.mainBlog
+    let article = articleId ? blogData[articleId] : data?.mainBlog
 
+    const [newComment, setNewComment] = useState({});
+    const [articleDetails, setArticleDetails] = useState(article);
 
     const paragraph = (articleDetails?.paragraph).split("\n")
     const content = (articleDetails?.content).split("\n")
@@ -24,9 +28,34 @@ const ArticleDetail = () => {
         // dispatch(addComment(comment));
     };
 
+    const submitContact = async (event) => {
+        event.preventDefault();
+
+        const { name, message } = event.target
+
+        let newComment = {
+            "name": name.value,
+            "time": "قليل",
+            "comment": message.value
+        };
+        setNewComment(newComment);
+        (articleDetails?.comments).push(newComment)
+        toast.success("لقد تم ارسال تعليقك", "success")
+    };
+    
+    useEffect(() => {
+        const isEmpty = Object.keys(newComment).length === 0;
+        let newArticleData = articleDetails
+        if (!isEmpty) {
+            (newArticleData?.comments).push(newComment)
+            setArticleDetails(newArticleData)
+        }
+    }, [newComment])
+
+    const isEmpty = Object.keys(articleDetails).length === 0;
     return (
         <>
-            {articleDetails ?
+            {!isEmpty ?
                 <div className="w-full justify-center items-center bg-gray-baby">
                     <div className="w-full sm:h-[315px] h-[260px] flex flex-col justify-center items-center bg-cover bg-[url('https://imgs.developpaper.com/imgs/20211130144758750.png')]">
                         <div className="sm:w-5/6 w-11/12 justify-start">
@@ -109,7 +138,7 @@ const ArticleDetail = () => {
                                     )}
                                 </div>
                                 <p className="text-lg border-r-2 border-green p-2 my-4 ">كن اول من يعلق</p>
-                                <form action="/send-data-here" method="post">
+                                <form action="/send-data-here" method="post" onSubmit={submitContact}>
 
                                     <label htmlFor="message" className="block mb-2 text-sm text-black">اكتب تعليقك</label>
                                     <textarea id="message" rows={4} className="block p-2.5 w-full text-sm text-black rounded-sm border border-gray-border dark:placeholder-gray-400 dark:text-white"
@@ -134,6 +163,7 @@ const ArticleDetail = () => {
                             </div>
                         </div>
                     </div>
+                    <ToastContainer />
                 </div>
                 :
                 <Loader isLoading />

@@ -22,16 +22,17 @@ export default function Home(props) {
   //   pending,
   //   error,
   // } = useAppSelector(blogArticlesSelector);
-
+  
   const handleTabClick = (e, tab) => {
     setOpenedTab(tab);
   }
   const articlesData = articles.slice(0, 3);
   const articlesData4 = articles.slice(0, 4);
+  const isEmptySlider = Object.keys(slider).length === 0;
 
   return (
     <div className="w-full flex flex-col pt-17 justify-center items-center">
-      {slider && <BlogCarousel slider={slider} />}
+      {!isEmptySlider && <BlogCarousel slider={slider} />}
       {articlesData.length > 0 ?
       <div className="md:w-11/12 w-5/6 justify-center items-center">
         <div className="flex flex-row justify-between items-center mt-12">
