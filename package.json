@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@bradgarropy/next-seo": "^1.2.0",
     "@reduxjs/toolkit": "^1.8.3",
     "next": "12.2.3",
     "next-redux-wrapper": "^7.0.5",
