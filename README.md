@@ -32,7 +32,7 @@ A new browser window should automatically open displaying the app.  If it doesn'
 
 - [Report-Page]
 
-![Report Page](/utils/screenshots/reports.jpeg "Report Page")
+![Report Page](/utils/screenshots/reports.png "Report Page")
 
 - [article-Page]
 
