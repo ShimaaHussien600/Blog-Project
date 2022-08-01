@@ -1,19 +1,17 @@
 import React from "react";
 import { BiStopwatch } from "react-icons/bi";
 
-const CommentItem = () => {
+const CommentItem = ({commentItem}) => {
     return (
         <div className="flex flex-col border-b border-light-gray py-4">
             <div className="w-full flex sm:flex-row flex-col justify-between">
-                <span className="text-base2x">أبو جود</span>
+                <span className="text-base2x">{commentItem?.name}</span>
                 <div className="flex flex-row justify-center items-center">
                     <BiStopwatch color="#A0A8A7" />
-                    <span className="text-sm text-gray-txt3">منذ يوم</span>
+                    <span className="text-sm text-gray-txt3">منذ {commentItem?.time}</span>
                 </div>
             </div>
-            <p className="text-gray-txt2 -text-sm my-2">
-                حرصنا من تمكين التجار من التسويق بشكل قوي وبأدوات سهلة وبسيطة. حيث يمكنك عمل حملات تسويقية وإرسالها للعملاء مع تحديد الشريحة المستهدفة بإحترافية وسهولة حرصنا من تمكين التجار من التسويق بشكل قوي وبأدوات سهلة وبسيطة. حيث يمكنك عمل حملات تسويقية وإرسالها للعملاء
-            </p>
+            <p className="text-gray-txt2 -text-sm my-2">{commentItem?.comment}</p>
         </div>
     )
 }

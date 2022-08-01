@@ -1,8 +1,22 @@
 import React from "react";
 import { FaFacebookF, FaLinkedinIn, FaTwitter } from "react-icons/fa";
-import CommentItem from "../components/CommentItem";
+import CommentItem from "../../components/CommentItem";
+import { useSelector, useDispatch } from "react-redux";
+import { addComment } from "../../features/slices/blogArticlesSlice";
+
+let blogsData = require('../../services/articlesData.json');
 
 function Article() {
+    // const { users } = useSelector((state) => state.users);
+    // const dispatch = useDispatch();
+    const response = blogsData;
+    const data = JSON.parse(JSON.stringify(response));
+    const blogData = data?.mainBlog
+
+    const addNewComment = (comment: object) => {
+        // dispatch(addComment(comment));
+    };
+
     return (
         <div className="w-full justify-center items-center bg-gray-baby">
             <div className="w-full sm:h-[315px] h-[260px] flex flex-col justify-center items-center bg-cover bg-[url('https://imgs.developpaper.com/imgs/20211130144758750.png')]">
@@ -14,7 +28,7 @@ function Article() {
                         <img className="w-full h-full bg-cover overflow-hidden shadow-lg"
                             src="https://img.favpng.com/25/6/13/patrick-dempsey-derek-shepherd-grey-s-anatomy-patrick-star-dr-mark-sloan-png-favpng-fkGHcw18tmKFdZKSJUi2TSUdA.jpg"></img>
                     </div>
-                    <span className="text-white text-sm mx-2 my-5">بواسطة / أبو جود  |  منذ  :1/24/2022</span>
+                    <span className="text-white text-sm mx-2 my-5">بواسطة / {blogData?.author}  |  منذ  :1/24/2022</span>
                 </div>
             </div>
             <div className="w-full flex justify-center items-center">

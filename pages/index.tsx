@@ -4,68 +4,33 @@ import RoportCard from "../components/cards/ReportCard"
 import { MdArrowBackIosNew } from "react-icons/md";
 import { RiArrowLeftCircleLine, RiArrowRightCircleLine } from "react-icons/ri";
 import OverlayCard from "../components/cards/OverlayCard";
+import { useAppDispatch, useAppSelector } from "../app/hooks";
+import { blogArticlesSelector } from "../features/blog/selectors";
+import { getBlogArticlesdata } from "../features/blog/actions";
+import { wrapper } from "../app/store";
 
-const articlesList = [
-  {
-    header: "التسويق",
-    body: "من المتوقع أن تزيد المبيعات من 1.3 تريليون في عام 2014 إلى 4.5 تريليون في عام 2021",
-    author: "عبدالله عادل"
-  },
-  {
-    header: "التسويق",
-    body: "من المتوقع أن تزيد المبيعات من 1.3 تريليون في عام 2014 إلى 4.5 تريليون في عام 2021",
-    author: "عبدالله عادل"
-  },
-  {
-    header: "التسويق",
-    body: "من المتوقع أن تزيد المبيعات من 1.3 تريليون في عام 2014 إلى 4.5 تريليون في عام 2021",
-    author: "عبدالله عادل"
-  },
-  {
-    header: "التسويق",
-    body: "من المتوقع أن تزيد المبيعات من 1.3 تريليون في عام 2014 إلى 4.5 تريليون في عام 2021",
-    author: "عبدالله عادل"
-  },
-  {
-    header: "التسويق",
-    body: "من المتوقع أن تزيد المبيعات من 1.3 تريليون في عام 2014 إلى 4.5 تريليون في عام 2021",
-    author: "عبدالله عادل"
-  },
-  {
-    header: "التسويق",
-    body: "من المتوقع أن تزيد المبيعات من 1.3 تريليون في عام 2014 إلى 4.5 تريليون في عام 2021",
-    author: "عبدالله عادل"
-  },
-  {
-    header: "التسويق",
-    body: "من المتوقع أن تزيد المبيعات من 1.3 تريليون في عام 2014 إلى 4.5 تريليون في عام 2021",
-    author: "عبدالله عادل"
-  },
-  {
-    header: "التسويق",
-    body: "من المتوقع أن تزيد المبيعات من 1.3 تريليون في عام 2014 إلى 4.5 تريليون في عام 2021",
-    author: "عبدالله عادل"
-  }
-]
+let blogsData = require('../services/articlesData.json');
 
-export default function Home() {
-
+export default function Home(props) {
+  const { articles, slider, mainBlog } = props.data
   const [openedTab, setOpenedTab] = useState(1);
-  const [active, setActive] = useState(false);
 
-  const handleClick = () => {
-    setActive(!active);
-  };
+  // const dispatch = useAppDispatch();
+  // const {
+  //   data,
+  //   pending,
+  //   error,
+  // } = useAppSelector(blogArticlesSelector);
 
   const handleTabClick = (e, tab) => {
-    // e.preventDefault();
     setOpenedTab(tab);
   }
-  const data = articlesList.slice(0, 3);
+  const articlesData = articles.slice(0, 3);
+  const articlesData4 = articles.slice(0, 4);
 
   return (
     <div className="w-full flex flex-col pt-17 justify-center items-center">
-      <BlogCarousel />
+      <BlogCarousel slider={slider} />
       <div className="md:w-11/12 w-5/6 justify-center items-center">
         <div className="flex flex-row justify-between items-center mt-12">
           <p className="text-l">الأكثر قراءة</p>
@@ -75,20 +40,20 @@ export default function Home() {
           </div>
         </div>
         <div className="md:container md:mx-auto grid xl:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 place-items-center mt-5 gap-4">
-          {data.map(item =>
-            <OverlayCard artilesData={item} />
+          {articlesData.map(item =>
+            <OverlayCard artilesData={item} brief />
           )}
         </div>
         <div className="flex sm:flex-row flex-col justify-center md:gap-8 gap-6 items-center border-b border-light-gray sm:px-4 py-10 my-10">
-          <RoportCard width={"594px"} widthSM={"333px"} />
+          <RoportCard article={mainBlog} width={"594px"} widthSM={"333px"} />
           <div className="flex flex-col md:gap-8 gap-6 justify-center items-center">
-            <RoportCard horiz />
-            <RoportCard horiz />
-            <RoportCard horiz />
+            {articlesData.map(item =>
+              <RoportCard article={item} horiz />
+            )}
           </div>
         </div>
         <div className="flex w-full justify-center items-center">
-          <OverlayCard artilesData={data[0]} full />
+          <OverlayCard artilesData={articlesData[0]} full />
         </div>
         <div className="flex flex-row w-full justify-between items-center my-5">
           <div className="sm:inline-flex my-5">
@@ -118,20 +83,38 @@ export default function Home() {
 
         </div>
         <div className="md:container md:mx-auto grid xl:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 place-items-center mt-5 gap-4">
-          <RoportCard width={"270px"} widthSM={"333px"} space />
-          <RoportCard width={"270px"} widthSM={"333px"} space />
-          <RoportCard width={"270px"} widthSM={"333px"} space />
-          <RoportCard width={"270px"} widthSM={"333px"} space />
+          {articlesData4.map(item =>
+            <RoportCard article={item} width={"270px"} widthSM={"333px"} space />
+          )}
         </div>
         <div className="flex sm:flex-row flex-col md:gap-6 gap-4 justify-center items-center sm:px-4 my-10">
           <div className="flex flex-col gap-2 justify-center items-center">
-            <RoportCard withoutImg />
-            <RoportCard withoutImg />
-            <RoportCard withoutImg />
+            {articlesData.map(item =>
+              <RoportCard article={item} withoutImg />
+            )}
           </div>
-          <OverlayCard artilesData={data[0]} big />
+          <OverlayCard artilesData={articlesData[0]} big />
         </div>
       </div>
     </div>
   )
 }
+export async function getServerSideProps(context) {
+  // here fetching the articles data from the api using axios or fetch 
+    //   const response = await axios.get('https://test/');
+    //   const res = await fetch(`https://...`)
+    //   const data = await res.json()
+
+    // store.dispatch();
+
+    const response = blogsData;
+    const data = JSON.parse(JSON.stringify(response));
+
+    return {
+      props: { data }, // will be passed to the page component as props
+    }
+}
+// export const getServerSideProps = wrapper.getServerSideProps(
+//   (store) => async () => {
+    
+//   })
